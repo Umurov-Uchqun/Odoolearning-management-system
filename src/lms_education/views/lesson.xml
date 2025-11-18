@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="le_lesson_list">
+            <field name="name">lesson list</field>
+            <field name="model">le.lesson</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="le_lesson_form">
+            <field name="name">lesson form</field>
+            <field name="model">le.lesson</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="le_lesson_action" model="ir.actions.act_window">
+            <field name="name">lesson</field>
+            <field name="res_model">le.lesson</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="lesson_menu" action="le_lesson_action"/>
+    </data>
+</odoo>

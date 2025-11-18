@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="le_course_list">
+            <field name="name">course list</field>
+            <field name="model">le.course</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="status"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="le_course_form">
+            <field name="name">course form</field>
+            <field name="model">le.course</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name"/>
+                    <field name="status"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="le_course_action" model="ir.actions.act_window">
+            <field name="name">course</field>
+            <field name="res_model">le.course</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="course_menu" action="le_course_action"/>
+    </data>
+</odoo>

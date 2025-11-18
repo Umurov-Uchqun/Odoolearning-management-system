@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_le_course,le.course,model_le_course,"",1,1,1,1
+access_le_group,le.group,model_le_group,"",1,1,1,1
+access_le_group_student,le.group.student,model_le_group_student,"",1,1,1,1
+access_le_homework,le.homework,model_le_homework,"",1,1,1,1
+access_le_lesson,le.lesson,model_le_lesson,"",1,1,1,1
+access_le_schedule_lesson,le.schedule.lesson,model_le_schedule_lesson,"",1,1,1,1
+access_le_schedule_table,le.schedule.table,model_le_schedule_table,"",1,1,1,1
+access_le_subject,le.subject,model_le_subject,"",1,1,1,1

@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="lb_floor_list">
+            <field name="name">floor list</field>
+            <field name="model">lb.floor</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="lb_floor_form">
+            <field name="name">floor form</field>
+            <field name="model">lb.floor</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="lb_floor_action" model="ir.actions.act_window">
+            <field name="name">floor</field>
+            <field name="res_model">lb.floor</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="floor_menu" action="floor_action"/>
+    </data>
+</odoo>

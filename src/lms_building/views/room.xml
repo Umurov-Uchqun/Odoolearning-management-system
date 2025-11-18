@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="lb_room_list">
+            <field name="name">room list</field>
+            <field name="model">lb.room</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="lb_room_form">
+            <field name="name">room form</field>
+            <field name="model">lb.room</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="lb_room_action" model="ir.actions.act_window">
+            <field name="name">room</field>
+            <field name="res_model">lb.room</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="room_menu" action="room_action"/>
+    </data>
+</odoo>
