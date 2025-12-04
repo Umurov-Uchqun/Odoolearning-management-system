@@ -6,6 +6,8 @@
             <field name="arch" type="xml">
                 <list>
                     <field name="name"/>
+                    <field name="lesson_ids"/>
+                    <field name="subject_ids"/>
                     <field name="status"/>
                 </list>
             </field>
@@ -16,8 +18,27 @@
             <field name="model">le.course</field>
             <field name="arch" type="xml">
                 <form>
-                    <field name="name"/>
-                    <field name="status"/>
+                    <header>
+                        <button name="action_create_group" string="Create" type="object" class="btn-primary"/>
+                        <button name="action_open" string="Open" type="object" class="btn-warning" invisible="status != 'draft' and status!= 'closed' "/>
+                        <button name="action_closed" string="Close" type="object" class="btn-danger" invisible="status != 'open'"/>
+                        <button name="action_draft" string="draft" type="object" class="btn-success"/>
+                    </header>
+                    <sheet>
+                        <field name="name"/>
+                        <field name="subject_ids" widget="many2many_tags"/>
+                        <field name="status"/>
+                        <notebook>
+                            <page string="Lesssons">
+                                <field name="lesson_ids">
+                                    <list editable="bottom">
+                                        <field name="name"/>
+                                        <field name="homework_ids"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
                 </form>
             </field>
         </record>

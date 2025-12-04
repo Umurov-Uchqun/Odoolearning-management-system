@@ -6,6 +6,7 @@
             <field name="arch" type="xml">
                 <list>
                     <field name="name"/>
+                    <field name="course_id"/>
                 </list>
             </field>
         </record>
@@ -15,7 +16,19 @@
             <field name="model">le.lesson</field>
             <field name="arch" type="xml">
                 <form>
-                    <field name="name"/>
+                    <sheet>
+                        <field name="name"/>
+                        <field name="course_id"/>
+                        <notebook>
+                            <page>
+                                <field name="homework_ids" string="homework">
+                                    <list editable="bottom">
+                                        <field name="name"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
                 </form>
             </field>
         </record>

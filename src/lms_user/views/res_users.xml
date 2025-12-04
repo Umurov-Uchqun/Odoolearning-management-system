@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_users_form" model="ir.ui.view">
+            <field name="name">view_users_form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[1]" position="inside">
+                    <field name="user_type"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_teachers" model="ir.actions.act_window">
+            <field name="name">Teachers</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[
+                ('user_type', '=', 'teacher')
+            ]</field>
+            <field name="view_ids" eval="[
+                Command.clear(),
+                Command.create({'view_id': ref('base.view_users_tree'), 'sequence': 1, 'view_mode': 'list'}),
+                Command.create({'view_id': ref('base.view_users_form'), 'sequence': 2, 'view_mode': 'form'}),
+            ]"/>
+            <field name="context">{
+                'default_user_type': 'teacher'
+            }</field>
+        </record>
+
+        <record id="action_students" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[
+                ('user_type', '=', 'student')
+            ]</field>
+            <field name="view_ids" eval="[
+                Command.clear(),
+                Command.create({'view_id': ref('base.view_users_tree'), 'sequence': 1, 'view_mode': 'list'}),
+                Command.create({'view_id': ref('base.view_users_form'), 'sequence': 2, 'view_mode': 'form'}),
+            ]"/>
+            <field name="context">{
+                'default_user_type': 'student'
+            }</field>
+        </record>
+    </data>
+</odoo>

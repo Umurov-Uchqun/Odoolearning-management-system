@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class Course(models.Model):
@@ -17,6 +17,15 @@ class Course(models.Model):
         ("closed", "Closed"),
     ], default="draft", required=True)
 
+    def action_open(self):
+        self.status = "open"
+
+    def action_closed(self):
+        self.status = "closed"
+
+    def action_draft(self):
+        self.status = "draft"
+
     def action_create_group(self):
         self.ensure_one()
 
@@ -29,3 +38,7 @@ class Course(models.Model):
                 "default_course_id": self.id,
             }
         }
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        return super(Course, self).create(vals_list)

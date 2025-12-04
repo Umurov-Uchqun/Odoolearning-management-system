@@ -7,7 +7,6 @@
     'security/ir.model.access.csv',
     'views/course.xml',
     'views/group.xml',
-    'views/group_student.xml',
     'views/homework.xml',
     'views/lesson.xml',
     'views/schedule_lesson.xml',
